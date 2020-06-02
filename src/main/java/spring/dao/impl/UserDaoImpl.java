@@ -1,14 +1,13 @@
 package spring.dao.impl;
 
+import java.util.List;
+import javax.persistence.criteria.CriteriaQuery;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.springframework.stereotype.Repository;
 import spring.dao.UserDao;
 import spring.models.User;
-
-import javax.persistence.criteria.CriteriaQuery;
-import java.util.List;
 
 @Repository
 public class UserDaoImpl implements UserDao {
