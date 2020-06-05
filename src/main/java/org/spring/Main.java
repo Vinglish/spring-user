@@ -1,9 +1,9 @@
-package spring;
+package org.spring;
 
+import org.spring.config.AppConfig;
+import org.spring.models.User;
+import org.spring.service.UserService;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
-import spring.config.AppConfig;
-import spring.models.User;
-import spring.service.UserService;
 
 public class Main {
 

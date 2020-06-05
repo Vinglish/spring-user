@@ -1,11 +1,11 @@
-package spring.service.impl;
+package org.spring.service.impl;
 
 import java.util.List;
+import org.spring.dao.UserDao;
+import org.spring.models.User;
+import org.spring.service.UserService;
+import org.spring.util.HashUtil;
 import org.springframework.stereotype.Service;
-import spring.dao.UserDao;
-import spring.models.User;
-import spring.service.UserService;
-import spring.util.HashUtil;
 
 @Service
 public class UserServiceImpl implements UserService {
@@ -25,5 +25,10 @@ public class UserServiceImpl implements UserService {
     @Override
     public List<User> listUsers() {
         return userDao.listUsers();
+    }
+
+    @Override
+    public User get(Long userId) {
+        return userDao.get(userId);
     }
 }

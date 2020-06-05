@@ -1,8 +1,9 @@
-package spring.config;
+package org.spring.config;
 
 import java.util.Properties;
 import javax.sql.DataSource;
 import org.apache.commons.dbcp2.BasicDataSource;
+import org.spring.models.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
@@ -10,11 +11,10 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.core.env.Environment;
 import org.springframework.orm.hibernate5.LocalSessionFactoryBean;
-import spring.models.User;
 
 @Configuration
 @PropertySource("classpath:db.properties")
-@ComponentScan(basePackages = {"spring.dao", "spring.service"})
+@ComponentScan(basePackages = {"org.spring.dao", "org.spring.service"})
 public class AppConfig {
     @Autowired
     private Environment env;

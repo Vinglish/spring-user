@@ -1,13 +1,14 @@
-package spring.dao.impl;
+package org.spring.dao.impl;
 
 import java.util.List;
 import javax.persistence.criteria.CriteriaQuery;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
+import org.hibernate.query.Query;
+import org.spring.dao.UserDao;
+import org.spring.models.User;
 import org.springframework.stereotype.Repository;
-import spring.dao.UserDao;
-import spring.models.User;
 
 @Repository
 public class UserDaoImpl implements UserDao {
@@ -44,6 +45,17 @@ public class UserDaoImpl implements UserDao {
             return session.createQuery(criteriaQuery).getResultList();
         } catch (Exception e) {
             throw new RuntimeException("Can't take user list");
+        }
+    }
+
+    @Override
+    public User get(Long userId) {
+        try (Session session = sessionFactory.openSession()) {
+            Query<User> query = session.createQuery("FROM User WHERE id = :id", User.class);
+            query.setParameter("id", userId);
+            return query.uniqueResult();
+        } catch (Exception e) {
+            throw new RuntimeException("Can't get user", e);
         }
     }
 }
